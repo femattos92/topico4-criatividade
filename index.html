@@ -2,8 +2,13 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criatividade e Inteligência Artificial na Perspectiva dos Estudantes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criatividade & IA | Perspectiva dos Estudantes</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,434 +17,577 @@
             theme: {
                 extend: {
                     colors: {
-                         fintechBg: '#0F172A',
-                         fintechCard: '#1E293B',
-                         fintechPrimary: '#3B82F6',
-                         fintechAccent: '#10B981',
-                         fintechText: '#F8FAFC',
-                         fintechMuted: '#94A3B8',
-                         fintechBorder: '#334155'
+                        finYellow: '#FAD02C',
+                        finRed: '#ED2939',
+                        finBlue: '#A2D2FF',
+                        finBg: '#F8FAFC',
+                        finCard: '#FFFFFF',
+                        finText: '#333333'
                     },
                     fontFamily: {
                         title: ['Plus Jakarta Sans', 'sans-serif'],
-                        body: ['DM Sans', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- Custom CSS Variables and FinTech Micro-styles -->
     <style>
         :root {
-          --font-title: 'Plus Jakarta Sans', sans-serif;
-          --font-body: 'DM Sans', sans-serif;
+            --font-title: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --primary-yellow: #FAD02C;
+            --primary-red: #ED2939;
+            --accent-blue: #A2D2FF;
+            --text-dark: #333333;
         }
-        h1, h2, h3, h4 { font-family: var(--font-title); }
-        body, p, span, a, input, button { font-family: var(--font-body); }
-        
-        body {
-            background-color: #0F172A;
-            color: #F8FAFC;
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-title);
+        }
+
+        body, p, span, a, input, button, li, th, td {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+        }
+
+        .fintech-card {
+            background-color: #FFFFFF;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .fintech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -10px rgba(237, 41, 57, 0.08);
+            border-color: rgba(237, 41, 57, 0.2);
+        }
+
+        .badge-pulse {
+            animation: pulse-slow 3s infinite;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
         }
     </style>
 </head>
-<body class="bg-[#0F172A] text-[#F8FAFC] antialiased selection:bg-[#3B82F6] selection:text-white">
+<body class="bg-finBg text-finText antialiased selection:bg-finRed selection:text-white">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-[#0F172A]/80 backdrop-blur-md border-b border-[#334155]">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#3B82F6] to-[#10B981] flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
-                    <i class="fa-solid fa-microchip text-lg"></i>
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-finRed text-white flex items-center justify-center font-title font-extrabold text-xl shadow-md shadow-finRed/20">
+                    4AI
                 </div>
-                <span class="font-title font-bold text-xl tracking-tight text-white">AI & Students Insight</span>
+                <div>
+                    <span class="font-title font-bold text-lg tracking-tight block leading-tight">Insight<span class="text-finRed">Fin</span>.Edu</span>
+                    <span class="text-xs text-slate-500 font-medium">Briefing Qualitativo Austrália</span>
+                </div>
             </div>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#94A3B8]">
-                <a href="#resumo" class="hover:text-[#3B82F6] transition-colors">Resumo</a>
-                <a href="#temas" class="hover:text-[#3B82F6] transition-colors">Temas Centrais</a>
-                <a href="#modelo4ai" class="hover:text-[#3B82F6] transition-colors">Modelo 4AI</a>
-                <a href="#multimidia" class="hover:text-[#3B82F6] transition-colors">Multimídia</a>
-                <a href="#conclusoes" class="hover:text-[#3B82F6] transition-colors">Recomendações</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#resumo" class="hover:text-finRed transition-colors">Resumo</a>
+                <a href="#temas" class="hover:text-finRed transition-colors">Temas</a>
+                <a href="#modelo4ai" class="hover:text-finRed transition-colors">Modelo 4AI</a>
+                <a href="#midia" class="hover:text-finRed transition-colors">Mídias</a>
+                <a href="#recomendacoes" class="hover:text-finRed transition-colors">Recomendações</a>
             </nav>
-            <div>
-                <a href="#multimidia" class="bg-[#3B82F6] hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-500/20 transition-all transform hover:-translate-y-0.5">
-                    Explorar Mídias
+            <div class="flex items-center gap-3">
+                <a href="#recomendacoes" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-finRed text-white text-sm font-semibold hover:bg-red-700 transition-all shadow-sm">
+                    Ver Insights
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative py-24 md:py-32 px-6 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#0F172A] to-[#0F172A] pointer-events-none"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20 mb-6 uppercase tracking-wider">
-                <i class="fa-solid fa-graduation-cap"></i> Pesquisa Qualitativa • Austrália
-            </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-                Criatividade e Inteligência Artificial na Perspectiva dos Estudantes
-            </h1>
-            <p class="text-lg md:text-xl text-[#94A3B8] leading-relaxed mb-10 max-w-3xl mx-auto">
-                Uma análise aprofundada sobre como estudantes do ensino secundário percebem a interseção entre IA e a imaginação humana na era digital.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#resumo" class="px-8 py-4 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2">
-                    Ler Resumo Executivo <i class="fa-solid fa-arrow-down text-xs"></i>
-                </a>
-                <a href="#multimidia" class="px-8 py-4 bg-[#1E293B] border border-[#334155] text-white rounded-xl font-semibold hover:bg-[#334155]/50 transition-all flex items-center gap-2">
-                    Ver Mídias (Áudio & Vídeo) <i class="fa-solid fa-play text-xs text-[#10B981]"></i>
-                </a>
+    <section class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-white via-finBg to-finBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-finYellow/20 border border-finYellow/40 text-xs font-semibold text-slate-800">
+                        <span class="w-2 h-2 rounded-full bg-finRed animate-pulse"></span>
+                        Pesquisa Qualitativa • Ensino Secundário (Austrália)
+                    </div>
+                    <h1 class="font-title text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                        Criatividade e Inteligência Artificial na Perspectiva dos <span class="text-transparent bg-clip-text bg-gradient-to-r from-finRed to-rose-600">Estudantes</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 leading-relaxed font-body max-w-2xl">
+                        Sintetizando achados sobre a intersecção entre IA e criatividade nas salas de aula, revelando a lacuna entre a percepção discente e a realidade tecnológica.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <div class="fintech-card px-4 py-3 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-finBlue/30 flex items-center justify-center font-bold text-slate-800">4D</div>
+                            <div>
+                                <span class="text-xs text-slate-500 block">Dimensões</span>
+                                <span class="font-title font-bold text-sm">Sociais, Afetivas, Tech & Aprendizagem</span>
+                            </div>
+                        </div>
+                        <div class="fintech-card px-4 py-3 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-finYellow/30 flex items-center justify-center font-bold text-slate-800">4AI</div>
+                            <div>
+                                <span class="text-xs text-slate-500 block">Framework</span>
+                                <span class="font-title font-bold text-sm">Novo Quadro Teórico Educacional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-5">
+                    <div class="fintech-card p-6 bg-gradient-to-br from-white to-slate-50 relative overflow-hidden">
+                        <div class="absolute -right-12 -top-12 w-32 h-32 rounded-full bg-finYellow/20 blur-2xl pointer-events-none"></div>
+                        <h3 class="font-title font-bold text-lg mb-4 flex items-center gap-2">
+                            <span class="w-2 h-6 rounded-full bg-finRed"></span>
+                            Destaque do Estudo
+                        </h3>
+                        <p class="text-sm text-slate-600 mb-5 leading-relaxed">
+                            Embora a IA seja integrada rapidamente, existe uma lacuna expressiva entre o mito da IA superinteligente e o potencial real das ferramentas cotidianas.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="p-3 rounded-lg bg-finBg border border-slate-200/60 flex items-start gap-3">
+                                <span class="text-finRed font-bold">01</span>
+                                <p class="text-xs sm:text-sm text-slate-700"><strong>Supremacia humana:</strong> IA vista apenas como facilitador/centelha.</p>
+                            </div>
+                            <div class="p-3 rounded-lg bg-finBg border border-slate-200/60 flex items-start gap-3">
+                                <span class="text-finRed font-bold">02</span>
+                                <p class="text-xs sm:text-sm text-slate-700"><strong>Know-how vs Atitude:</strong> Conhecimento técnico gera confiança; opacidade gera temor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content Grid / Sections -->
-    <main class="max-w-6xl mx-auto px-6 pb-24 space-y-16">
-
-        <!-- Resumo Executivo -->
-        <section id="resumo" class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 md:p-12 shadow-xl">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] text-xl font-bold">
-                    <i class="fa-solid fa-file-lines"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">Resumo Executivo</h2>
-                    <span class="text-xs text-[#94A3B8]">Síntese da pesquisa qualitativa com secundaristas</span>
-                </div>
-            </div>
-            
-            <p class="text-[#94A3B8] text-base md:text-lg leading-relaxed mb-8">
-                Este documento sintetiza os achados de uma pesquisa qualitativa realizada com estudantes do ensino secundário na Austrália sobre a interseção entre Inteligência Artificial (IA) e criatividade. O estudo revela que, embora a IA esteja sendo rapidamente integrada às salas de aula, existe uma lacuna significativa entre a percepção dos alunos e a realidade tecnológica. Os estudantes identificam a relação entre IA e criatividade através de quatro dimensões principais: <strong class="text-white">fatores sociais, afetivos, tecnológicos e de aprendizagem</strong>.
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-6 mt-8">
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl">
-                    <div class="text-[#3B82F6] text-xl mb-3"><i class="fa-solid fa-brain"></i></div>
-                    <h3 class="text-white font-bold text-lg mb-2">Supremacia da Criatividade Humana</h3>
-                    <p class="text-sm text-[#94A3B8]">A maioria dos estudantes acredita que a IA jamais igualará a criatividade humana, vendo-a apenas como um facilitador ou "centelha" para o processo criativo.</p>
-                </div>
-
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl">
-                    <div class="text-[#10B981] text-xl mb-3"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3 class="text-white font-bold text-lg mb-2">Correlação: Conhecimento & Atitude</h3>
-                    <p class="text-sm text-[#94A3B8]">Alunos com maior compreensão técnica da IA demonstram atitudes mais positivas, enquanto o baixo entendimento gera temor e desconfiança.</p>
-                </div>
-
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl">
-                    <div class="text-[#3B82F6] text-xl mb-3"><i class="fa-solid fa-robot"></i></div>
-                    <h3 class="text-white font-bold text-lg mb-2">Limitação da Percepção Tecnológica</h3>
-                    <p class="text-sm text-[#94A3B8]">Os estudantes tendem a associar IA estritamente a robótica e ficção científica (IA Geral), ignorando aplicações cotidianas de "IA Estreita".</p>
-                </div>
-
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl">
-                    <div class="text-[#10B981] text-xl mb-3"><i class="fa-solid fa-layer-group"></i></div>
-                    <h3 class="text-white font-bold text-lg mb-2">Proposta do Modelo 4AI</h3>
-                    <p class="text-sm text-[#94A3B8]">O estudo sugere a expansão do Modelo 4C para um quadro teórico de "4AI" (Mini-AI, Little-AI, Big-AI e Legendary-AI) na educação.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Análise de Temas Centrais -->
-        <section id="temas" class="space-y-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-xs font-semibold text-[#10B981] uppercase tracking-widest bg-[#10B981]/10 px-3 py-1 rounded-full">Análise Aprofundada</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-3">Temas Centrais Identificados</h2>
-                <p class="text-[#94A3B8] mt-2">As quatro dimensões da perspectiva discente sobre a tecnologia.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Tema 1 -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-[#3B82F6] flex items-center justify-center font-bold mb-4">01</div>
-                        <h3 class="text-xl font-bold text-white mb-4">Fatores Sociais e a Percepção de Risco</h3>
-                        <p class="text-[#94A3B8] text-sm leading-relaxed mb-4">
-                            Os estudantes expressam preocupações consideráveis sobre o impacto da IA nas competências interpessoais e na vida social.
-                        </p>
-                        <ul class="space-y-3 text-sm text-[#94A3B8]">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#3B82F6] mt-1"></i>
-                                <span><strong class="text-white">Degradação de Habilidades Sociais:</strong> Crença de que a IA pode enfraquecer a "inteligência social" e o foco presencial.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#3B82F6] mt-1"></i>
-                                <span><strong class="text-white">Resistência à Colaboração:</strong> Dificuldade em visualizar a IA como parceira de equipe (ex: resistência em cockpits de avião).</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#3B82F6] mt-1"></i>
-                                <span><strong class="text-white">Oportunidade de Conexão:</strong> Reconhecimento de que bem utilizada, pode conectar comunidades globais.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Tema 2 -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-[#10B981] flex items-center justify-center font-bold mb-4">02</div>
-                        <h3 class="text-xl font-bold text-white mb-4">Fatores Afetivos: Confiança e Transparência</h3>
-                        <p class="text-[#94A3B8] text-sm leading-relaxed mb-4">
-                            A resposta emocional à IA é diretamente proporcional ao nível de familiaridade e à transparência dos sistemas.
-                        </p>
-                        <ul class="space-y-3 text-sm text-[#94A3B8]">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#10B981] mt-1"></i>
-                                <span><strong class="text-white">O Problema da "Caixa Preta":</strong> Desconforto com processos internos opacos. A IA Explicável é crucial.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#10B981] mt-1"></i>
-                                <span><strong class="text-white">Conforto Técnico:</strong> Segurança ligada à percepção de controle e tipo de hardware (maior conforto com computadores do que robôs físicos).</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Tema 3 -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-[#3B82F6] flex items-center justify-center font-bold mb-4">03</div>
-                        <h3 class="text-xl font-bold text-white mb-4">Fatores Tecnológicos e o Processo Criativo</h3>
-                        <p class="text-[#94A3B8] text-sm leading-relaxed mb-4">
-                            Visão de admiração pela superioridade técnica combinada com ceticismo quanto à essência criativa da máquina.
-                        </p>
-                        <ul class="space-y-3 text-sm text-[#94A3B8]">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#3B82F6] mt-1"></i>
-                                <span><strong class="text-white">IA como Catalisadora:</strong> Ferramenta para "despertar" (spark) a criatividade humana e encorajar pensamento fora da caixa.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#3B82F6] mt-1"></i>
-                                <span><strong class="text-white">Visão Antropocêntrica:</strong> A IA depende da criatividade humana original para existir, não tendo autonomia real.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Tema 4 -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-[#10B981] flex items-center justify-center font-bold mb-4">04</div>
-                        <h3 class="text-xl font-bold text-white mb-4">Fatores de Aprendizagem e Ambiente Escolar</h3>
-                        <p class="text-[#94A3B8] text-sm leading-relaxed mb-4">
-                            A integração da IA no aprendizado é vista como benéfica para a eficiência, mas enfrenta barreiras estruturais.
-                        </p>
-                        <ul class="space-y-3 text-sm text-[#94A3B8]">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#10B981] mt-1"></i>
-                                <span><strong class="text-white">Apoio ao Aprendizado:</strong> Acesso facilitado à informação, desenvolvimento de ideias e novas perspectivas.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-[#10B981] mt-1"></i>
-                                <span><strong class="text-white">Mitigação do "Slump":</strong> O currículo rígido inibe a criatividade; a IA pode automatizar tarefas e incentivar autonomia.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modelo 4AI Table Section -->
-        <section id="modelo4ai" class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 md:p-12 shadow-xl overflow-hidden">
-            <div class="max-w-3xl mb-8">
-                <span class="text-xs font-semibold text-[#3B82F6] uppercase tracking-widest bg-[#3B82F6]/10 px-3 py-1 rounded-full">Contribuição Teórica</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-white mt-3">O Modelo 4AI</h2>
-                <p class="text-[#94A3B8] text-sm md:text-base mt-2">
-                    Para alinhar a educação em IA com as teorias de criatividade, o estudo propõe a transposição do modelo "4C" de criatividade para o contexto da inteligência artificial.
+    <section id="resumo" class="py-16 lg:py-24 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold tracking-wider uppercase text-finRed block mb-2">Visão Geral</span>
+                <h2 class="font-title text-3xl sm:text-4xl font-extrabold tracking-tight">Resumo Executivo</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Quatro dimensões estruturam a percepção estudantil sobre inteligência artificial e o processo criativo no ambiente acadêmico australiano.
                 </p>
             </div>
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-[#334155] text-white text-sm">
-                            <th class="py-4 px-4 font-bold">Nível 4C (Criatividade)</th>
-                            <th class="py-4 px-4 font-bold">Nível 4AI (Inteligência Artificial)</th>
-                            <th class="py-4 px-4 font-bold">Descrição no Contexto Educacional</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm text-[#94A3B8] divide-y divide-[#334155]/50">
-                        <tr class="hover:bg-[#0F172A]/50 transition-colors">
-                            <td class="py-4 px-4 font-semibold text-white">Mini-c (Pessoal)</td>
-                            <td class="py-4 px-4 text-[#3B82F6] font-semibold">Mini-AI</td>
-                            <td class="py-4 px-4">Descobertas subjetivas e uso individual da IA no processo de aprendizagem.</td>
-                        </tr>
-                        <tr class="hover:bg-[#0F172A]/50 transition-colors">
-                            <td class="py-4 px-4 font-semibold text-white">Little-c (Cotidiano)</td>
-                            <td class="py-4 px-4 text-[#10B981] font-semibold">Little-AI</td>
-                            <td class="py-4 px-4">Aplicações práticas e diárias da IA reconhecidas por outros.</td>
-                        </tr>
-                        <tr class="hover:bg-[#0F172A]/50 transition-colors">
-                            <td class="py-4 px-4 font-semibold text-white">Pro-c (Profissional)</td>
-                            <td class="py-4 px-4 text-[#3B82F6] font-semibold">Big-AI</td>
-                            <td class="py-4 px-4">Uso de IA em nível de especialização e domínio técnico.</td>
-                        </tr>
-                        <tr class="hover:bg-[#0F172A]/50 transition-colors">
-                            <td class="py-4 px-4 font-semibold text-white">Big-C (Lendário)</td>
-                            <td class="py-4 px-4 text-[#10B981] font-semibold">Legendary-AI</td>
-                            <td class="py-4 px-4">Avanços em IA que alteram paradigmas globais e históricos.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="fintech-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-finRed/10 text-finRed flex items-center justify-center font-bold text-lg mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 058 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/></svg>
+                        </div>
+                        <h3 class="font-title font-bold text-lg mb-2">Supremacia da Criatividade Humana</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            A maioria dos estudantes acredita que a IA jamais igualará a criatividade humana, vendo-a apenas como um facilitador ou "centelha" criativa.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Dimensão Tecnológica</span>
+                        <span class="text-finRed">Ceticismo criativo</span>
+                    </div>
+                </div>
 
-            <div class="mt-8 bg-[#0F172A] border border-[#334155] p-6 rounded-2xl">
-                <h4 class="text-white font-bold mb-2"><i class="fa-solid fa-lightbulb text-[#10B981] mr-2"></i>Conclusão da Proposta</h4>
-                <p class="text-sm text-[#94A3B8]">
-                    O foco educacional deve se deslocar da "Legendary-AI" (visão de ficção científica) para a "Mini-AI" e "Little-AI", ajudando os alunos a valorizar e utilizar a tecnologia em suas experiências cotidianas de aprendizado.
+                <!-- Card 2 -->
+                <div class="fintech-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-finBlue/30 text-slate-800 flex items-center justify-center font-bold text-lg mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <h3 class="font-title font-bold text-lg mb-2">Conhecimento e Atitude</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Alunos com maior compreensão técnica da IA demonstram atitudes mais positivas, enquanto o baixo entendimento gera temor e desconfiança.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Dimensão Afetiva</span>
+                        <span class="text-finRed">Alfabetização tech</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="fintech-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-finYellow/40 text-slate-900 flex items-center justify-center font-bold text-lg mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3 class="font-title font-bold text-lg mb-2">Limitação da Percepção</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Estudantes associam IA estritamente a robótica e ficção científica (IA Geral/Superinteligência), ignorando aplicações cotidianas de "IA Estreita".
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Dimensão Cognitiva</span>
+                        <span class="text-finRed">Viés sci-fi</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="fintech-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-finRed/10 text-finRed flex items-center justify-center font-bold text-lg mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 class="font-title font-bold text-lg mb-2">Proposta do Modelo 4AI</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Sugere expandir o Modelo 4C de criatividade para Mini-AI, Little-AI, Big-AI e Legendary-AI integrados na educação.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Dimensão Aprendizagem</span>
+                        <span class="text-finRed">Novo Framework</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="temas" class="py-16 lg:py-24 bg-finBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold tracking-wider uppercase text-finRed block mb-2">Deep Dive</span>
+                <h2 class="font-title text-3xl sm:text-4xl font-extrabold tracking-tight">Análise de Temas Centrais</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Investigação aprofundada das quatro dimensões mapeadas na pesquisa qualitativa com os secundaristas.
                 </p>
             </div>
-        </section>
 
-        <!-- Central Multimídia Section -->
-        <section id="multimidia" class="space-y-12">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-xs font-semibold text-[#3B82F6] uppercase tracking-widest bg-[#3B82F6]/10 px-3 py-1 rounded-full">Recursos Interativos</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-3">Central Multimídia</h2>
-                <p class="text-[#94A3B8] mt-2">Explore o infográfico, áudio e vídeo complementares à pesquisa.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Theme 1 -->
+                <div class="fintech-card p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-finYellow/30 text-xs font-bold text-slate-800">Tema 01</span>
+                            <span class="text-xs font-semibold text-finRed">Risco e Interpessoal</span>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-3">Fatores Sociais e a Percepção de Risco</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                            Preocupações consideráveis sobre o impacto da IA nas competências interpessoais e na vida social.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"><span></span></span>
+                                <div><strong>Degradação de Habilidades Sociais:</strong> Crença de que a IA enfraquece a inteligência social, focando telas em vez de presença física.</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>Resistência à Colaboração Humano-IA:</strong> Dificuldade em ver IA como "parceira de equipe" (ex: resistência em cockpits de avião complexos).</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finBlue mt-2 shrink-0"></span>
+                                <div><strong>Oportunidade de Conexão:</strong> Reconhecimento de que o uso ético pode conectar comunidades globais e gerar bem social.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Theme 2 -->
+                <div class="fintech-card p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-finBlue/30 text-xs font-bold text-slate-800">Tema 02</span>
+                            <span class="text-xs font-semibold text-finRed">Confiança & XAI</span>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-3">Fatores Afetivos: Confiança e Transparência</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                            A resposta emocional à IA é diretamente proporcional ao nível de familiaridade e transparência sistêmica.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>O Problema da "Caixa Preta":</strong> Desconforto com processos internos opacos. IA explicável (XAI) é crucial para adoção.</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>Conforto Técnico:</strong> Segurança ligada ao controle percepção (ex: softwares instalados) e hardware (mais conforto com PCs/código do que robôs físicos).</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Theme 3 -->
+                <div class="fintech-card p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-finYellow/40 text-xs font-bold text-slate-800">Tema 03</span>
+                            <span class="text-xs font-semibold text-finRed">Ceticismo vs Centelha</span>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-3">Fatores Tecnológicos e o Processo Criativo</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                            Admiração por superioridade técnica combinada com ceticismo quanto à essência autônoma criativa.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>IA como Catalisadora:</strong> Ferramenta que desperta (spark) a criatividade humana e encoraja pensamento "fora da caixa".</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>Limitação de Escopo:</strong> Visão futurista estrita em robótica, falhando em notar IA estreita presente no cotidiano.</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>Visão Antropocêntrica:</strong> Dependência de criatividade humana original para existir, sem autonomia real.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Theme 4 -->
+                <div class="fintech-card p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-finRed/10 text-xs font-bold text-finRed">Tema 04</span>
+                            <span class="text-xs font-semibold text-finRed">Escola & Slump</span>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-3">Fatores de Aprendizagem e Ambiente Escolar</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                            Integração vista como benéfica para eficiência, mas travada por barreiras estruturais curriculares.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>Apoio ao Aprendizado:</strong> Facilita acesso à informação, desenvolvimento de ideias e novas perspectivas.</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-finRed mt-2 shrink-0"></span>
+                                <div><strong>O "Slump" da Criatividade:</strong> Currículos rígidos e falta de tempo inibem criatividade; IA mitiga automatizando tarefas e estimulando autonomia.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modelo4ai" class="py-16 lg:py-24 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold tracking-wider uppercase text-finRed block mb-2">Framework Proposto</span>
+                <h2 class="font-title text-3xl sm:text-4xl font-extrabold tracking-tight">Contribuição Teórica: O Modelo 4AI</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Transposição do modelo clássico "4C" de criatividade para alinhar educação tecnológica ao ecossistema escolar.
+                </p>
+            </div>
+
+            <!-- Table Container Fintech Style -->
+            <div class="fintech-card overflow-hidden mb-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
+                                <th class="p-4 sm:p-5">Nível 4C (Criatividade)</th>
+                                <th class="p-4 sm:p-5">Nível 4AI (Inteligência Artificial)</th>
+                                <th class="p-4 sm:p-5">Descrição no Contexto Educacional</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 sm:p-5 font-semibold text-slate-800">Mini-c (Pessoal)</td>
+                                <td class="p-4 sm:p-5"><span class="px-2.5 py-1 rounded-md bg-finYellow/30 font-bold text-xs">Mini-AI</span></td>
+                                <td class="p-4 sm:p-5 text-slate-600">Descobertas subjetivas e uso individual da IA no processo de aprendizagem.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 sm:p-5 font-semibold text-slate-800">Little-c (Cotidiano)</td>
+                                <td class="p-4 sm:p-5"><span class="px-2.5 py-1 rounded-md bg-finBlue/30 font-bold text-xs">Little-AI</span></td>
+                                <td class="p-4 sm:p-5 text-slate-600">Aplicações práticas e diárias da IA reconhecidas por outros pares/turma.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 sm:p-5 font-semibold text-slate-800">Pro-c (Profissional)</td>
+                                <td class="p-4 sm:p-5"><span class="px-2.5 py-1 rounded-md bg-indigo-100 font-bold text-xs text-indigo-700">Big-AI</span></td>
+                                <td class="p-4 sm:p-5 text-slate-600">Uso de IA em nível de especialização e domínio técnico avançado.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 sm:p-5 font-semibold text-slate-800">Big-C (Lendário)</td>
+                                <td class="p-4 sm:p-5"><span class="px-2.5 py-1 rounded-md bg-finRed/15 font-bold text-xs text-finRed">Legendary-AI</span></td>
+                                <td class="p-4 sm:p-5 text-slate-600">Avanços em IA que alteram paradigmas globais e históricos da sociedade.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="fintech-card p-6 bg-gradient-to-r from-finYellow/20 via-white to-finBlue/20 border-finYellow/40">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase text-finRed tracking-wider block mb-1">Conclusão da Proposta</span>
+                        <p class="text-sm sm:text-base font-semibold text-slate-800">
+                            O foco educacional deve se deslocar da "Legendary-AI" (visão sci-fi) para a <strong>Mini-AI</strong> e <strong>Little-AI</strong>, valorizando o cotidiano.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="midia" class="py-16 lg:py-24 bg-finBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold tracking-wider uppercase text-finRed block mb-2">Multimídia</span>
+                <h2 class="font-title text-3xl sm:text-4xl font-extrabold tracking-tight">Acervo de Mídias sobre o Tema</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Infográfico visual, podcast analítico e vídeo documental da pesquisa.
+                </p>
             </div>
 
             <div class="space-y-12">
                 <!-- Infográfico -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 md:p-10 shadow-xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-[#3B82F6] flex items-center justify-center font-bold">
-                            <i class="fa-solid fa-image"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Infográfico Acadêmico</h3>
-                            <p class="text-xs text-[#94A3B8]">Visualização gráfica do briefing da pesquisa</p>
-                        </div>
+                <div class="fintech-card p-6 sm:p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-title font-bold text-xl flex items-center gap-2">
+                            <span class="w-2.5 h-6 rounded-full bg-finYellow"></span>
+                            Infográfico: Percepções Estudantis
+                        </h3>
+                        <a href="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Criatividade_e_IA__Percepcoes_Estudantis.png" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-finRed hover:underline flex items-center gap-1">
+                            Abrir original ↗
+                        </a>
                     </div>
-                    <div class="w-full bg-[#0F172A] rounded-2xl border border-[#334155] p-4 overflow-hidden flex items-center justify-center">
-                        <img src="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Criatividade_e_IA__Percepcoes_Estudantis.png" alt="Infográfico: Criatividade e IA na Perspectiva dos Estudantes" class="rounded-xl max-h-[600px] object-contain shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/800x500/1E293B/94A3B8?text=Infografico+Indisponivel';">
-                    </div>
-                </div>
-
-                <!-- Áudio -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 md:p-10 shadow-xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-[#10B981] flex items-center justify-center font-bold">
-                            <i class="fa-solid fa-podcast"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Áudio Especial: Alunos veem vilões na IA</h3>
-                            <p class="text-xs text-[#94A3B8]">Discussão em áudio sobre os dilemas estudantis</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#0F172A] rounded-2xl p-6 border border-[#334155]">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-microphone-lines"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold">Alunos veem vilões na inteligência artificial</h4>
-                                <span class="text-xs text-[#94A3B8]">Áudio oficial do projeto de pesquisa</span>
-                            </div>
-                        </div>
-                        <audio controls class="w-full mt-2 accent-blue-500">
-                            <source src="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Alunos_veem_viloes_na_inteligencia_artificial.m4a" type="audio/mp4">
-                            Seu navegador não suporta o elemento de áudio.
-                        </audio>
+                    <div class="rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex justify-center p-2">
+                        <img 
+                            src="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Criatividade_e_IA__Percepcoes_Estudantis.png" 
+                            alt="Infográfico Criatividade e IA Percepções Estudantis" 
+                            class="max-w-full h-auto rounded-lg shadow-sm"
+                            onerror="this.src='https://placehold.co/1000x600/F8FAFC/333333?text=Infografico+Criatividade+e+IA';">
                     </div>
                 </div>
 
-                <!-- Vídeo -->
-                <div class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 md:p-10 shadow-xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-[#3B82F6] flex items-center justify-center font-bold">
-                            <i class="fa-solid fa-video"></i>
-                        </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Áudio -->
+                    <div class="fintech-card p-6 sm:p-8 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-white">Vídeo Explicativo</h3>
-                            <p class="text-xs text-[#94A3B8]">Como os estudantes realmente enxergam a Inteligência Artificial</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-title font-bold text-lg flex items-center gap-2">
+                                    <span class="w-2.5 h-6 rounded-full bg-finRed"></span>
+                                    Áudio: Vilões na IA
+                                </h3>
+                                <span class="text-xs text-slate-400 font-medium">Podcast</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-6">
+                                Ouça a análise em áudio sobre como estudantes percebem vilanias e riscos associados à inteligência artificial.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <audio controls class="w-full">
+                                <source src="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Alunos_veem_viloes_na_inteligencia_artificial.m4a" type="audio/mp4">
+                                Seu navegador não suporta reprodução de áudio.
+                            </audio>
                         </div>
                     </div>
-                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-[#0F172A] border border-[#334155] shadow-inner flex items-center justify-center">
-                        <video controls class="w-full h-full object-cover">
-                            <source src="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Como_os_estudantes_realmente_enxergam_a_Inteligencia_Artificial.mp4" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
+
+                    <!-- Vídeo -->
+                    <div class="fintech-card p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-title font-bold text-lg flex items-center gap-2">
+                                    <span class="w-2.5 h-6 rounded-full bg-finBlue"></span>
+                                    Vídeo: Como Estudantes Enxergam a IA
+                                </h3>
+                                <span class="text-xs text-slate-400 font-medium">Documentário / Clipe</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-6">
+                                Assista ao vídeo explicativo sobre a visão dos alunos na prática acadêmica.
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-800 shadow-inner">
+                            <video controls class="w-full aspect-video object-cover">
+                                <source src="https://raw.githubusercontent.com/femattos92/topico4-criatividade/main/Como_os_estudantes_realmente_enxergam_a_Inteligencia_Artificial.mp4" type="video/mp4">
+                                Seu navegador não suporta reprodução de vídeo.
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Conclusões e Recomendações -->
-        <section id="conclusoes" class="bg-[#1E293B] border border-[#334155] rounded-3xl p-8 md:p-12 shadow-xl">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-[#10B981]/10 flex items-center justify-center text-[#10B981] text-xl font-bold">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">Conclusões e Recomendações</h2>
-                    <span class="text-xs text-[#94A3B8]">Diretrizes para a integração eficaz da IA na educação</span>
-                </div>
+    <section id="recomendacoes" class="py-16 lg:py-24 bg-white border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold tracking-wider uppercase text-finRed block mb-2">Roadmap Educacional</span>
+                <h2 class="font-title text-3xl sm:text-4xl font-extrabold tracking-tight">Conclusões e Recomendações</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    A integração eficaz exige ir além da simples provisão de ferramentas: requer mudança estrutural na pedagogia tecnológica.
+                </p>
             </div>
 
-            <p class="text-[#94A3B8] text-sm md:text-base leading-relaxed mb-8">
-                O estudo conclui que a integração eficaz da IA nas salas de aula exige mais do que apenas a provisão de ferramentas; requer uma mudança na educação sobre a tecnologia.
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Rec 1 -->
+                <div class="fintech-card p-6 relative group">
+                    <div class="w-10 h-10 rounded-xl bg-finRed text-white font-title font-extrabold flex items-center justify-center text-base mb-4 shadow-sm">
+                        01
+                    </div>
+                    <h3 class="font-title font-bold text-base mb-2">Educação Integral</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Ensinar não apenas <strong>com</strong> IA, mas também <strong>sobre</strong> IA e <strong>para</strong> a IA, desmistificando concepções errôneas.
+                    </p>
+                </div>
+
+                <!-- Rec 2 -->
+                <div class="fintech-card p-6 relative group">
+                    <div class="w-10 h-10 rounded-xl bg-finRed text-white font-title font-extrabold flex items-center justify-center text-base mb-4 shadow-sm">
+                        02
+                    </div>
+                    <h3 class="font-title font-bold text-base mb-2">Fomento à Criatividade</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Posicionar IA como suporte ao <strong>processo criativo</strong> (foco no processo) e não apenas gerador de produtos finais.
+                    </p>
+                </div>
+
+                <!-- Rec 3 -->
+                <div class="fintech-card p-6 relative group">
+                    <div class="w-10 h-10 rounded-xl bg-finRed text-white font-title font-extrabold flex items-center justify-center text-base mb-4 shadow-sm">
+                        03
+                    </div>
+                    <h3 class="font-title font-bold text-base mb-2">Abordagem Humano-IA</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Enfatizar papel da IA como colaboradora, demonstrando ampliação de capacidades humanas em situações complexas.
+                    </p>
+                </div>
+
+                <!-- Rec 4 -->
+                <div class="fintech-card p-6 relative group">
+                    <div class="w-10 h-10 rounded-xl bg-finRed text-white font-title font-extrabold flex items-center justify-center text-base mb-4 shadow-sm">
+                        04
+                    </div>
+                    <h3 class="font-title font-bold text-base mb-2">Transparencia</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Ferramentas escolares compreensíveis e explicáveis para os alunos, mitigando desconfiança gerada por caixas-pretas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-finRed text-white flex items-center justify-center font-title font-bold text-sm">
+                    4AI
+                </div>
+                <span class="font-title font-semibold text-white text-sm">InsightFin.Edu</span>
+            </div>
+            
+            <p class="text-xs sm:text-sm font-body text-center sm:text-right text-slate-300">
+                Conteúdo gerado por IA sob supervisão de Felipe Mattos.
             </p>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-[#3B82F6]/10 text-[#3B82F6] flex items-center justify-center font-bold flex-shrink-0">1</div>
-                    <div>
-                        <h3 class="text-white font-bold mb-1">Educação Integral</h3>
-                        <p class="text-sm text-[#94A3B8]">Ensinar não apenas <em class="text-white">com</em> IA, mas também <em class="text-white">sobre</em> IA e <em class="text-white">para</em> a IA, desmistificando concepções errôneas.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-[#10B981]/10 text-[#10B981] flex items-center justify-center font-bold flex-shrink-0">2</div>
-                    <div>
-                        <h3 class="text-white font-bold mb-1">Fomento à Criatividade</h3>
-                        <p class="text-sm text-[#94A3B8]">Posicionar a IA como suporte ao processo criativo (foco no processo) e não apenas como ferramenta para gerar produtos finais.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-[#3B82F6]/10 text-[#3B82F6] flex items-center justify-center font-bold flex-shrink-0">3</div>
-                    <div>
-                        <h3 class="text-white font-bold mb-1">Abordagem Humano-IA</h3>
-                        <p class="text-sm text-[#94A3B8]">Educadores devem enfatizar o papel da IA como colaboradora, demonstrando como ela pode ampliar as capacidades humanas em situações complexas.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#0F172A] border border-[#334155] p-6 rounded-2xl flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-[#10B981]/10 text-[#10B981] flex items-center justify-center font-bold flex-shrink-0">4</div>
-                    <div>
-                        <h3 class="text-white font-bold mb-1">Transparência</h3>
-                        <p class="text-sm text-[#94A3B8]">Para aumentar a aceitação, as ferramentas de IA utilizadas no ambiente escolar devem ser compreensíveis para os alunos, evitando a desconfiança de sistemas de "caixa preta".</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#0F172A] border-t border-[#334155] py-12 px-6">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs text-[#94A3B8] gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-[#3B82F6] flex items-center justify-center text-white font-bold">
-                    <i class="fa-solid fa-microchip"></i>
-                </div>
-                <span class="font-title font-bold text-sm text-white">AI & Students Insight</span>
-            </div>
-            <p>Conteúdo gerado por IA sob supervisão de Felipe Mattos.</p>
-            <div class="flex space-x-4">
-                <a href="#resumo" class="hover:text-white transition-colors">Início</a>
-                <a href="#multimidia" class="hover:text-white transition-colors">Mídias</a>
-                <a href="#conclusoes" class="hover:text-white transition-colors">Recomendações</a>
-            </div>
         </div>
     </footer>
 
